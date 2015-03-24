@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+		
+	<RelativeLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="10dp">
+				
+		<ImageView
+			android:id="@android:id/icon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_launcher" 
+			android:layout_centerHorizontal="true"
+			android:layout_alignParentTop="true"
+		/>
+
+		<TextView
+			android:id="@android:id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="22dp"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="5dp"
+			android:layout_below="@android:id/icon"
+			android:text="@string/app_name"
+			android:textStyle="bold"
+		/>
+				
+		<TextView
+			android:id="@android:id/text1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@android:id/title"
+			android:textSize="15dp"
+			android:layout_centerHorizontal="true"
+		/>
+			
+			
+		<TextView
+			android:id="@android:id/text2"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@android:id/text1"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="15dp"
+			android:textColor="?android:textColorPrimary"
+			android:autoLink="web|email"
+		/>
+			
+			
+	</RelativeLayout>
+
+</ScrollView>

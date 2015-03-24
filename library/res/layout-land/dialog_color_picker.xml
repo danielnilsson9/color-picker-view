@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <!-- We set the id on this layout so we in the ColorPickerDialog class can identify if the landscape or portrait layout has been loaded. -->
+    <LinearLayout
+        android:id="@id/dialog_color_picker_extra_layout_landscape"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+
+        <afzkl.development.colorpickerview.view.ColorPickerView
+            android:id="@id/color_picker_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginLeft="14dp" >
+
+            <afzkl.development.colorpickerview.view.ColorPanelView
+                android:id="@id/color_panel_old"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="↓"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <afzkl.development.colorpickerview.view.ColorPanelView
+                android:id="@id/color_panel_new"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

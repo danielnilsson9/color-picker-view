@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:picker="http://schemas.android.com/apk/res/afzkl.development.colorpickerview.demo"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" >
+
+        <afzkl.development.colorpickerview.view.ColorPickerView
+            android:id="@id/color_picker_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            picker:alphaChannelVisible="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@id/color_picker_view"
+            android:layout_alignRight="@id/color_picker_view"
+            android:layout_below="@id/color_picker_view"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal" >
+
+            <afzkl.development.colorpickerview.view.ColorPanelView
+                android:id="@id/color_panel_old"
+                android:layout_width="0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="→"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <afzkl.development.colorpickerview.view.ColorPanelView
+                android:id="@id/color_panel_new"
+                android:layout_width="0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+     
+    <LinearLayout
+        android:id="@+id/buttonbar"
+        style="@android:style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel"  />
+    </LinearLayout>
+
+</LinearLayout>

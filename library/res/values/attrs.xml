@@ -1,0 +1,15 @@
+<resources>
+
+    <declare-styleable name="ColorPickerPreference">
+		<attr name="showDialogTitle" format="boolean|reference" />
+		<attr name="showSelectedColorInList" format="boolean|reference" />
+    </declare-styleable>
+    
+    <declare-styleable name="ColorPickerView">
+        <attr name="alphaChannelVisible" format="boolean|reference"/>
+        <attr name="alphaChannelText" format="string|reference" />
+        <attr name="colorPickerSliderColor" format="color|reference" />
+       	<attr name="colorPickerBorderColor" format="color|reference" />
+    </declare-styleable>
+
+</resources>
