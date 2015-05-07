@@ -41,7 +41,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:text="→"
-                android:textColor="#ffffff"
+                android:textColor="#646464"
                 android:textSize="20sp" />
 
             <afzkl.development.colorpickerview.view.ColorPanelView

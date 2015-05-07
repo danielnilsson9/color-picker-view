@@ -35,11 +35,11 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Library" >
         <Preference
-            android:summary="http://code.google.com/p/color-picker-view/"
+            android:summary="https://github.com/danielnilsson9/color-picker-view"
             android:title="Get Source Code" >
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://code.google.com/p/color-picker-view/" />
+                android:data="https://github.com/danielnilsson9/color-picker-view" />
         </Preference>
     </PreferenceCategory>
 

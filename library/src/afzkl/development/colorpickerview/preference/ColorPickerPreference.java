@@ -53,8 +53,8 @@ public class ColorPickerPreference extends DialogPreference implements ColorPick
 		
 		alphaChannelVisible = a.getBoolean(R.styleable.ColorPickerView_alphaChannelVisible, false);
 		alphaChannelText = a.getString(R.styleable.ColorPickerView_alphaChannelText);		
-		colorPickerSliderColor = a.getColor(R.styleable.ColorPickerView_colorPickerSliderColor, -1);
-		colorPickerBorderColor = a.getColor(R.styleable.ColorPickerView_colorPickerBorderColor, -1);
+		colorPickerSliderColor = a.getColor(R.styleable.ColorPickerView_sliderColor, -1);
+		colorPickerBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, -1);
 		
 		a.recycle();
 		

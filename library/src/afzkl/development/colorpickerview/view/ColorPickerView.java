@@ -184,8 +184,8 @@ public class ColorPickerView extends View{
 		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ColorPickerView);		
 		mShowAlphaPanel = a.getBoolean(R.styleable.ColorPickerView_alphaChannelVisible, false);
 		mAlphaSliderText = a.getString(R.styleable.ColorPickerView_alphaChannelText);		
-		mSliderTrackerColor = a.getColor(R.styleable.ColorPickerView_colorPickerSliderColor, 0xFFBDBDBD);
-		mBorderColor = a.getColor(R.styleable.ColorPickerView_colorPickerBorderColor, 0xFF6E6E6E);
+		mSliderTrackerColor = a.getColor(R.styleable.ColorPickerView_sliderColor, 0xFFBDBDBD);
+		mBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, 0xFF6E6E6E);
 		a.recycle();
 		
 		

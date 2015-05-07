@@ -17,8 +17,10 @@
 
 package afzkl.development.colorpickerview.view;
 
+import afzkl.development.colorpickerview.R;
 import afzkl.development.colorpickerview.drawable.AlphaPatternDrawable;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -65,10 +67,15 @@ public class ColorPanelView extends View{
 	public ColorPanelView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
-		init();
+		init(attrs);
 	}
 	
-	private void init(){
+	private void init(AttributeSet attrs){
+		
+		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ColorPickerView);		
+		mBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, 0xFF6E6E6E);
+		a.recycle();
+		
 		mBorderPaint = new Paint();
 		mColorPaint = new Paint();
 		mDensity = getContext().getResources().getDisplayMetrics().density;

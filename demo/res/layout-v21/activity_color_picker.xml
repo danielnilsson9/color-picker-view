@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    		  xmlns:picker="http://schemas.android.com/apk/res/afzkl.development.colorpickerview.demo"
+    xmlns:picker="http://schemas.android.com/apk/res/afzkl.development.colorpickerview.demo"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:divider="?android:attr/dividerHorizontal"
-    android:showDividers="middle"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:showDividers="middle" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="25dp" >
+        android:padding="22dp" >
 
         <afzkl.development.colorpickerview.view.ColorPickerView
             android:id="@id/color_picker_view"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            picker:alphaChannelVisible="true" />
+            picker:alphaChannelVisible="true"
+            picker:borderColor="#646464" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,7 +33,8 @@
                 android:id="@id/color_panel_old"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                picker:borderColor="#646464" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,13 +43,15 @@
                 android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:text="→"
+                android:textColor="#646464"
                 android:textSize="20sp" />
 
             <afzkl.development.colorpickerview.view.ColorPanelView
                 android:id="@id/color_panel_new"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+				picker:borderColor="#646464" />
         </LinearLayout>
     </RelativeLayout>
 

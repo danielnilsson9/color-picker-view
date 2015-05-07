@@ -49,7 +49,7 @@ public class MainActivity extends PreferenceActivity {
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		int initialValue = prefs.getInt("color_2", 0xFF000000);
 		
-		Log.d("mColorPicker", "initial value:" + initialValue);
+		Log.d("ColorPickerView", "Initial value:" + initialValue);
 				
 		final ColorPickerDialog colorDialog = new ColorPickerDialog(this, initialValue);
 		

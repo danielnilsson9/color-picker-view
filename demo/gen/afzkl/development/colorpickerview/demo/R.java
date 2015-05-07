@@ -24,13 +24,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int colorPickerBorderColor=0x7f010005;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static final int colorPickerSliderColor=0x7f010004;
+        public static final int borderColor=0x7f010005;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -41,12 +35,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static final int showSelectedColorInList=0x7f010001;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sliderColor=0x7f010004;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int ic_menu_color_palette=0x7f020001;
         public static final int ic_menu_color_palette_holo_light=0x7f020002;
-        public static final int icon=0x7f020003;
     }
     public static final class id {
         public static final int buttonbar=0x7f050005;
@@ -76,6 +75,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int hello_world=0x7f060002;
     }
     public static final class style {
+        public static final int AlertDialogStyle=0x7f070004;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -90,13 +90,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
  API 11 theme customizations can go here. 
+
+        Base application theme for API 21+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
          */
-        public static final int AppBaseTheme=0x7f070001;
+        public static final int AppBaseTheme=0x7f070002;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070002;
-        public static final int dialog_color_pciker_view_portrait=0x7f070000;
+        public static final int AppTheme=0x7f070003;
+        public static final int dialog_color_pciker_view_portrait=0x7f070001;
+        public static final int dialog_color_picker_view_portrait=0x7f070000;
     }
     public static final class xml {
         public static final int main=0x7f040000;
@@ -125,7 +130,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          @attr name android:showDialogTitle
+          @attr name afzkl.development.colorpickerview.demo:showDialogTitle
         */
         public static final int ColorPickerPreference_showDialogTitle = 0;
         /**
@@ -136,7 +141,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          @attr name android:showSelectedColorInList
+          @attr name afzkl.development.colorpickerview.demo:showSelectedColorInList
         */
         public static final int ColorPickerPreference_showSelectedColorInList = 1;
         /** Attributes that can be used with a ColorPickerView.
@@ -147,13 +152,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #ColorPickerView_alphaChannelText afzkl.development.colorpickerview.demo:alphaChannelText}</code></td><td></td></tr>
            <tr><td><code>{@link #ColorPickerView_alphaChannelVisible afzkl.development.colorpickerview.demo:alphaChannelVisible}</code></td><td></td></tr>
-           <tr><td><code>{@link #ColorPickerView_colorPickerBorderColor afzkl.development.colorpickerview.demo:colorPickerBorderColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #ColorPickerView_colorPickerSliderColor afzkl.development.colorpickerview.demo:colorPickerSliderColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerView_borderColor afzkl.development.colorpickerview.demo:borderColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerView_sliderColor afzkl.development.colorpickerview.demo:sliderColor}</code></td><td></td></tr>
            </table>
            @see #ColorPickerView_alphaChannelText
            @see #ColorPickerView_alphaChannelVisible
-           @see #ColorPickerView_colorPickerBorderColor
-           @see #ColorPickerView_colorPickerSliderColor
+           @see #ColorPickerView_borderColor
+           @see #ColorPickerView_sliderColor
          */
         public static final int[] ColorPickerView = {
             0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005
@@ -166,7 +171,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-          @attr name android:alphaChannelText
+          @attr name afzkl.development.colorpickerview.demo:alphaChannelText
         */
         public static final int ColorPickerView_alphaChannelText = 1;
         /**
@@ -177,11 +182,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          @attr name android:alphaChannelVisible
+          @attr name afzkl.development.colorpickerview.demo:alphaChannelVisible
         */
         public static final int ColorPickerView_alphaChannelVisible = 0;
         /**
-          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#colorPickerBorderColor}
+          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#borderColor}
           attribute's value can be found in the {@link #ColorPickerView} array.
 
 
@@ -189,11 +194,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name android:colorPickerBorderColor
+          @attr name afzkl.development.colorpickerview.demo:borderColor
         */
-        public static final int ColorPickerView_colorPickerBorderColor = 3;
+        public static final int ColorPickerView_borderColor = 3;
         /**
-          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#colorPickerSliderColor}
+          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#sliderColor}
           attribute's value can be found in the {@link #ColorPickerView} array.
 
 
@@ -201,8 +206,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name android:colorPickerSliderColor
+          @attr name afzkl.development.colorpickerview.demo:sliderColor
         */
-        public static final int ColorPickerView_colorPickerSliderColor = 2;
+        public static final int ColorPickerView_sliderColor = 2;
     };
 }

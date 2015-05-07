@@ -1,0 +1,19 @@
+<resources>
+
+    <!--
+        Base application theme for API 21+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimaryDark">#0288D1</item>
+        <item name="android:colorPrimary">#03A9F4</item>
+        <item name="android:colorAccent">#0277BD</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogStyle</item>
+    </style>
+
+    
+    <style name="AlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorAccent">#0277BD</item>
+    </style>
+    
+</resources>
