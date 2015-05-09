@@ -13,52 +13,46 @@ public final class R {
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
          */
-        public static final int alphaChannelText=0x7f010003;
+        public static final int alphaChannelText=0x7f010001;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int alphaChannelVisible=0x7f010002;
+        public static final int alphaChannelVisible=0x7f010000;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int borderColor=0x7f010005;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-         */
-        public static final int showDialogTitle=0x7f010000;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-         */
-        public static final int showSelectedColorInList=0x7f010001;
+        public static final int borderColor=0x7f010003;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int sliderColor=0x7f010004;
+        public static final int sliderColor=0x7f010002;
+    }
+    public static final class dimen {
+        public static final int color_picker_view_required_padding=0x7f050000;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_menu_color_palette=0x7f020001;
-        public static final int ic_menu_color_palette_holo_light=0x7f020002;
+        public static final int btn_background=0x7f020000;
+        public static final int btn_background_pressed=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int ic_menu_color_palette=0x7f020003;
+        public static final int ic_menu_color_palette_holo_light=0x7f020004;
     }
     public static final class id {
-        public static final int buttonbar=0x7f050005;
-        public static final int cancelButton=0x7f050007;
-        public static final int color_panel_new=0x7f050002;
-        public static final int color_panel_old=0x7f050001;
-        public static final int color_picker_view=0x7f050000;
-        public static final int dialog_color_picker_extra_layout_landscape=0x7f050004;
-        public static final int layout1=0x7f050008;
-        public static final int menu_about=0x7f05000a;
-        public static final int menu_color_picker_dialog=0x7f050009;
-        public static final int okButton=0x7f050006;
-        public static final int preference_preview_color_panel=0x7f050003;
+        public static final int buttonbar=0x7f060005;
+        public static final int cancelButton=0x7f060007;
+        public static final int color_panel_new=0x7f060002;
+        public static final int color_panel_old=0x7f060001;
+        public static final int color_picker_view=0x7f060000;
+        public static final int dialog_color_picker_extra_layout_landscape=0x7f060004;
+        public static final int menu_about=0x7f060009;
+        public static final int menu_color_picker_dialog=0x7f060008;
+        public static final int okButton=0x7f060006;
+        public static final int preference_preview_color_panel=0x7f060003;
     }
     public static final class layout {
         public static final int activity_color_picker=0x7f030000;
@@ -67,83 +61,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int preference_preview_layout=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060002;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int hello_world=0x7f070002;
     }
     public static final class style {
-        public static final int AlertDialogStyle=0x7f070004;
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
+        /**  API 11 theme customizations can go here. 
 
         Base application theme for API 21+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
          */
-        public static final int AppBaseTheme=0x7f070002;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
+        public static final int AppBaseTheme=0x7f080003;
+        /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070003;
-        public static final int dialog_color_pciker_view_portrait=0x7f070001;
-        public static final int dialog_color_picker_view_portrait=0x7f070000;
+        public static final int AppTheme=0x7f080002;
+        public static final int ColorPickerViewStyle=0x7f080000;
+        public static final int DarkPickerDialogTheme=0x7f080005;
+        public static final int DarkPickerDialogTitleStyle=0x7f080007;
+        /**  Styling the color picker dialog fragment. 
+         Below are some styles that show you how to 
+         change the apperance of the color picker dialog.
+     
+         */
+        public static final int LightPickerDialogTheme=0x7f080004;
+        public static final int LightPickerDialogTitleStyle=0x7f080006;
+        /**  Custom button style quite close to the one foind in material design. (borderless) 
+ Use default button material style in v21+ 
+         */
+        public static final int PickerDialogButtonStyle=0x7f080001;
     }
     public static final class xml {
         public static final int main=0x7f040000;
     }
     public static final class styleable {
-        /** Attributes that can be used with a ColorPickerPreference.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ColorPickerPreference_showDialogTitle afzkl.development.colorpickerview.demo:showDialogTitle}</code></td><td></td></tr>
-           <tr><td><code>{@link #ColorPickerPreference_showSelectedColorInList afzkl.development.colorpickerview.demo:showSelectedColorInList}</code></td><td></td></tr>
-           </table>
-           @see #ColorPickerPreference_showDialogTitle
-           @see #ColorPickerPreference_showSelectedColorInList
-         */
-        public static final int[] ColorPickerPreference = {
-            0x7f010000, 0x7f010001
-        };
-        /**
-          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#showDialogTitle}
-          attribute's value can be found in the {@link #ColorPickerPreference} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          @attr name afzkl.development.colorpickerview.demo:showDialogTitle
-        */
-        public static final int ColorPickerPreference_showDialogTitle = 0;
-        /**
-          <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#showSelectedColorInList}
-          attribute's value can be found in the {@link #ColorPickerPreference} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          @attr name afzkl.development.colorpickerview.demo:showSelectedColorInList
-        */
-        public static final int ColorPickerPreference_showSelectedColorInList = 1;
         /** Attributes that can be used with a ColorPickerView.
            <p>Includes the following attributes:</p>
            <table>
@@ -161,7 +115,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #ColorPickerView_sliderColor
          */
         public static final int[] ColorPickerView = {
-            0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
         };
         /**
           <p>This symbol is the offset where the {@link afzkl.development.colorpickerview.demo.R.attr#alphaChannelText}

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Daniel Nilsson
+ * Copyright (C) 2015 Daniel Nilsson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,8 +56,10 @@ public class AlphaPatternDrawable extends Drawable {
 	}
 
 	@Override
-	public void draw(Canvas canvas) {
-		canvas.drawBitmap(mBitmap, null, getBounds(), mPaint);
+	public void draw(Canvas canvas) {		
+		if(mBitmap != null && !mBitmap.isRecycled()) {
+			canvas.drawBitmap(mBitmap, null, getBounds(), mPaint);
+		}	
 	}
 
 	@Override

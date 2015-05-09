@@ -1,9 +1,5 @@
 <resources>
 
-    <declare-styleable name="ColorPickerPreference">
-		<attr name="showDialogTitle" format="boolean|reference" />
-		<attr name="showSelectedColorInList" format="boolean|reference" />
-    </declare-styleable>
     
     <declare-styleable name="ColorPickerView">
         <attr name="alphaChannelVisible" format="boolean|reference"/>

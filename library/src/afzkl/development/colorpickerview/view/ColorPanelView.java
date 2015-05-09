@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 Daniel Nilsson
+ * Copyright (C) 2015 Daniel Nilsson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package afzkl.development.colorpickerview.view;
 
 import afzkl.development.colorpickerview.R;
@@ -24,7 +23,10 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 /**
@@ -42,9 +44,11 @@ public class ColorPanelView extends View{
 	 */
 	private final static float	BORDER_WIDTH_PX = 1;
 	
+	private final static int 	DEFAULT_BORDER_COLOR = 0xFF6E6E6E;
+	
 	private static float mDensity = 1f;
 	
-	private int 		mBorderColor = 0xff6E6E6E;
+	private int 		mBorderColor = DEFAULT_BORDER_COLOR;
 	private int 		mColor = 0xff000000;
 	
 	private Paint		mBorderPaint;
@@ -56,7 +60,7 @@ public class ColorPanelView extends View{
 	private AlphaPatternDrawable mAlphaPattern;
 	
 	
-	public ColorPanelView(Context context){
+	public ColorPanelView(Context context) {
 		this(context, null);
 	}
 	
@@ -67,18 +71,58 @@ public class ColorPanelView extends View{
 	public ColorPanelView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		
-		init(attrs);
+		init(context, attrs);
 	}
 	
-	private void init(AttributeSet attrs){
+	@Override
+	public Parcelable onSaveInstanceState() {
+
+		Bundle state = new Bundle();
+		state.putParcelable("instanceState", super.onSaveInstanceState());
+		state.putInt("color", mColor);
+
+		return state;
+	}
+
+	@Override
+	public void onRestoreInstanceState(Parcelable state) {
+
+		if (state instanceof Bundle) {
+			Bundle bundle = (Bundle) state;			
+			mColor = bundle.getInt("color");			
+			state = bundle.getParcelable("instanceState");
+		}
+		super.onRestoreInstanceState(state);
+	}
+	
+	
+	private void init(Context context, AttributeSet attrs){
 		
 		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ColorPickerView);		
 		mBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, 0xFF6E6E6E);
 		a.recycle();
 		
+		applyThemeColors(context);
+		
 		mBorderPaint = new Paint();
 		mColorPaint = new Paint();
 		mDensity = getContext().getResources().getDisplayMetrics().density;
+	}
+	
+	private void applyThemeColors(Context c) {
+		// If no specific border color has been
+		// set we take the default secondary text color 
+		// as border/slider color. Thus it will adopt
+		// to theme changes automatically.
+		
+		final TypedValue value = new TypedValue ();			
+		TypedArray a = c.obtainStyledAttributes(value.data, new int[] { android.R.attr.textColorSecondary });
+
+		if(mBorderColor == DEFAULT_BORDER_COLOR) {
+			mBorderColor = a.getColor(0, DEFAULT_BORDER_COLOR);
+		}
+
+		a.recycle();
 	}
 	
 	

@@ -18,10 +18,10 @@
     xmlns:picker="http://schemas.android.com/apk/res/afzkl.development.colorpickerview.demo" >
 
     <PreferenceCategory android:title="Demo" >
-        <afzkl.development.colorpickerview.preference.ColorPickerPreference
+        <afzkl.development.colorpickerview.preference.ColorPreference
             android:defaultValue="0xFF000000"
             android:key="color"
-            android:summary="Show our color picker using the custom ColorPickerPreference class"
+            android:summary="Show our color picker using the custom ColorPreference class."
             android:title="Show Dialog" />
 
         <Preference

@@ -8,9 +8,9 @@ import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.view.View;
 
 public class ColorPickerActivity extends Activity implements OnColorChangedListener, View.OnClickListener {
 
@@ -44,9 +44,9 @@ public class ColorPickerActivity extends Activity implements OnColorChangedListe
 		mCancelButton = (Button) findViewById(R.id.cancelButton);
 		
 		
-		((LinearLayout) mOldColorPanelView.getParent()).setPadding(Math
-				.round(mColorPickerView.getDrawingOffset()), 0, Math
-				.round(mColorPickerView.getDrawingOffset()), 0);
+		((LinearLayout) mOldColorPanelView.getParent()).setPadding(
+				mColorPickerView.getPaddingLeft(), 0, 
+				mColorPickerView.getPaddingRight(), 0);
 		
 		
 		mColorPickerView.setOnColorChangedListener(this);
