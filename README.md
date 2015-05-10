@@ -20,3 +20,8 @@ There are basicly three different ways to use this color picker. You can add it 
 - New layout on the color picker dialog, should look good on all screen sizes and orientations.
 - ColorPickerPreferences was replaced by ColorPreference. The ColorPreference does NOT take care of showing the ColorPickerDialogFragment, you will have to do that yourself, see the demo app. This is due to the fact that we don't have access to the fragment manager from the Preference class.
 - ColorPickerView now automatically saves it state on orientation change etc.
+
+##### Version 1.3
+- Bugfix: Selected Hue value in hue panel did not perfectly match what was shown in in the Saturation/Value panel.
+- Bugfix: Layout issues on sw320dp displays.
+- Bugfix: Title could not be changed or removed in ColorPickerDialogFragment.
