@@ -104,7 +104,6 @@ public class ColorPickerDialogFragment extends DialogFragment {
 		
 		
 		d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
 		d.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, 
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 		
@@ -169,10 +168,8 @@ public class ColorPickerDialogFragment extends DialogFragment {
 			
 			int initColor = getArguments().getInt("init_color");
 			
-			if(initColor != -1) {
-				mOldColorPanel.setColor(initColor);
-				mColorPicker.setColor(initColor, true);
-			}
+			mOldColorPanel.setColor(initColor);
+			mColorPicker.setColor(initColor, true);
 		}
 		
 		

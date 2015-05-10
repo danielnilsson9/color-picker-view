@@ -6,6 +6,7 @@ import afzkl.development.colorpickerview.preference.ColorPreference;
 import afzkl.development.colorpickerview.preference.ColorPreference.OnShowDialogListener;
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.Menu;
@@ -69,7 +70,7 @@ public class MainActivity extends Activity implements ColorPickerDialogListener 
 		// a dialog using the custom ColorPickerDialogFragment class.
 		
 		ColorPickerDialogFragment f = ColorPickerDialogFragment
-				.newInstance(DIALOG_ID, null, null, -1, true);
+				.newInstance(DIALOG_ID, null, null, Color.BLACK, true);
 		
 		f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 		f.show(getFragmentManager(), "d");
