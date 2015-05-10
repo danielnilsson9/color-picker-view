@@ -1,10 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="ColorPickerViewStyle">
-        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_width">215dp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    
     <!-- Custom button style quite close to the one foind in material design. (borderless) -->
     <style name="PickerDialogButtonStyle">
        	<item name="android:background">@drawable/btn_background</item>  

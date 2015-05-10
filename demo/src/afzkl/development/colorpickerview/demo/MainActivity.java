@@ -4,53 +4,43 @@ import afzkl.development.colorpickerview.dialog.ColorPickerDialogFragment;
 import afzkl.development.colorpickerview.dialog.ColorPickerDialogFragment.ColorPickerDialogListener;
 import afzkl.development.colorpickerview.preference.ColorPreference;
 import afzkl.development.colorpickerview.preference.ColorPreference.OnShowDialogListener;
+import android.app.Activity;
 import android.app.DialogFragment;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends PreferenceActivity implements ColorPickerDialogListener{
+public class MainActivity extends Activity implements ColorPickerDialogListener {
 	
+
+	// Give your color picker dialog unique IDs if you 
+	// have multiple dialog. This will make it possible 
+	// for you to distinguish between them when you
+	// get a result back in your ColorPickerDialogListener.
 	private static final int DIALOG_ID = 0;
 	private static final int PREFERENCE_DIALOG_ID = 1;
 	
 	
-	private ColorPreference mColorPickerPreference;
-	
-	
+	private ExamplePreferenceFragment mPreferenceFragment;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.main);
 
-		init();
-	}
+		// Display the fragment as the main content.
+		getFragmentManager().beginTransaction()
+				.replace(android.R.id.content, new ExamplePreferenceFragment())
+				.commit();
 
-	private void init() {
-		mColorPickerPreference = (ColorPreference) findPreference("color");
-		mColorPickerPreference.setOnShowDialogListener(new OnShowDialogListener() {
-			
-			@Override
-			public void onShowColorPickerDialog(String title, int currentColor) {				
-				
-				// Preference was clicked, we need to show the dialog.
-				
-				ColorPickerDialogFragment f = ColorPickerDialogFragment
-						.newInstance(PREFERENCE_DIALOG_ID, "Color Picker", null, currentColor, false);
-				
-				f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
-				f.show(getFragmentManager(), "pre_dialog");
-			}
-		});
 		
-	}
+		mPreferenceFragment = new ExamplePreferenceFragment();
+		getFragmentManager().beginTransaction()
+				.replace(android.R.id.content, mPreferenceFragment).commit();		
+	}   
 	
-	
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -79,28 +69,25 @@ public class MainActivity extends PreferenceActivity implements ColorPickerDialo
 		// a dialog using the custom ColorPickerDialogFragment class.
 		
 		ColorPickerDialogFragment f = ColorPickerDialogFragment
-				.newInstance(DIALOG_ID, "Color Picker", null, -1, true);
+				.newInstance(DIALOG_ID, null, null, -1, true);
 		
 		f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
-		//f.setTitle("Color Picker");
 		f.show(getFragmentManager(), "d");
 
 	}
-	
-	
-	private String colorToHexString(int color) {
-		return String.format("#%06X", 0xFFFFFFFF & color);
-	}
-
-
 	
 	
 	@Override
 	public void onColorSelected(int dialogId, int color) {
 		switch(dialogId) {
 		case PREFERENCE_DIALOG_ID:
-			// We got result back from preference picker dialog. We need to save it.
-			mColorPickerPreference.saveValue(color);
+			// We got result back from preference picker dialog in 
+			// ExamplePreferenceFragment. We forward it to the 
+			// fragment handling that particular preference.
+			
+			((ColorPickerDialogListener)mPreferenceFragment)
+			.onColorSelected(dialogId, color);
+			
 			break;
 		case DIALOG_ID:
 			// We got result from the other dialog, the one that is
@@ -115,8 +102,86 @@ public class MainActivity extends PreferenceActivity implements ColorPickerDialo
 
 	@Override
 	public void onDialogDismissed(int dialogId) {
-		// nothing to do
+
+		switch(dialogId) {
+		case PREFERENCE_DIALOG_ID:
+			// We got result back from preference picker dialog in 
+			// ExamplePreferenceFragment. We forward it to the 
+			// fragment handling that particular preference.
+			
+			((ColorPickerDialogListener)mPreferenceFragment)
+			.onDialogDismissed(dialogId);
+			
+			break;
+		}
 	}
 
+	
+
+	private static String colorToHexString(int color) {
+		return String.format("#%06X", 0xFFFFFFFF & color);
+	}
+	
+	public static class ExamplePreferenceFragment extends PreferenceFragment implements 
+		ColorPickerDialogListener {
+		
+
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);			
+			addPreferencesFromResource(R.xml.main);
+			
+			// Find preference and add code to handle showing the ColorPickerDialogFragment
+			// once requested.
+			ColorPreference pref = (ColorPreference) findPreference("color");			
+			pref.setOnShowDialogListener(new OnShowDialogListener() {
+				
+				@Override
+				public void onShowColorPickerDialog(String title, int currentColor) {
+					
+					// Preference was clicked, we need to show the dialog.					
+					ColorPickerDialogFragment dialog = ColorPickerDialogFragment
+							.newInstance(PREFERENCE_DIALOG_ID, "Color Picker", null, currentColor, false);
+
+					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);		
+					
+					// PLEASE READ!
+					// Show the dialog, the result from the dialog
+					// will end up in the parent activity since
+					// there really isn't any good way for fragments
+					// to communicate with each other. The recommended
+					// ways is for them to communicate through their
+					// host activity, thats what we will do.
+					// In our case, we must then make sure that MainActivity
+					// implements ColorPickerDialogListener because that
+					// is expected by ColorPickerDialogFragment.
+					//
+					// We also make this fragment implement ColorPickerDialogListener
+					// and when we receive the result in the activity's 
+					// ColorPickerDialogListener when just forward them 
+					// to this fragment instead.
+				    dialog.show(getFragmentManager(), "pre_dialog");					
+				}				
+			});			
+		}
+
+		@Override
+		public void onColorSelected(int dialogId, int color) {
+			switch (dialogId) {
+			case PREFERENCE_DIALOG_ID:
+				// We have our result from the dialog, save it!
+				ColorPreference pref = (ColorPreference) findPreference("color");			
+				pref.saveValue(color);
+				break;
+			}
+		}
+
+		@Override
+		public void onDialogDismissed(int dialogId) {
+			// Nothing to do.
+		}
+		
+	}
+	
 }
  

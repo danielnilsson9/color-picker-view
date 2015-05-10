@@ -33,6 +33,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sliderColor=0x7f010002;
     }
     public static final class dimen {
+        public static final int color_picker_dialog_preview_height=0x7f050002;
+        public static final int color_picker_dialog_preview_width=0x7f050001;
         public static final int color_picker_view_required_padding=0x7f050000;
     }
     public static final class drawable {

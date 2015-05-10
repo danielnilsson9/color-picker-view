@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -42,11 +42,9 @@ public class ColorPanelView extends View{
 	 * The width in pixels of the border 
 	 * surrounding the color panel.
 	 */
-	private final static float	BORDER_WIDTH_PX = 1;
+	private final static int	BORDER_WIDTH_PX = 1;
 	
 	private final static int 	DEFAULT_BORDER_COLOR = 0xFF6E6E6E;
-	
-	private static float mDensity = 1f;
 	
 	private int 		mBorderColor = DEFAULT_BORDER_COLOR;
 	private int 		mColor = 0xff000000;
@@ -54,8 +52,8 @@ public class ColorPanelView extends View{
 	private Paint		mBorderPaint;
 	private Paint		mColorPaint;
 	
-	private RectF		mDrawingRect;
-	private RectF		mColorRect;
+	private Rect		mDrawingRect;
+	private Rect		mColorRect;
 
 	private AlphaPatternDrawable mAlphaPattern;
 	
@@ -106,7 +104,6 @@ public class ColorPanelView extends View{
 		
 		mBorderPaint = new Paint();
 		mColorPaint = new Paint();
-		mDensity = getContext().getResources().getDisplayMetrics().density;
 	}
 	
 	private void applyThemeColors(Context c) {
@@ -127,9 +124,8 @@ public class ColorPanelView extends View{
 	
 	
 	@Override
-	protected void onDraw(Canvas canvas) {
-		
-		final RectF	rect = mColorRect;
+	protected void onDraw(Canvas canvas) {		
+		final Rect	rect = mColorRect;
 				
 		if(BORDER_WIDTH_PX > 0){
 			mBorderPaint.setColor(mBorderColor);
@@ -158,27 +154,26 @@ public class ColorPanelView extends View{
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		
-		mDrawingRect = new RectF();		
+		mDrawingRect = new Rect();		
 		mDrawingRect.left =  getPaddingLeft();
 		mDrawingRect.right  = w - getPaddingRight();
 		mDrawingRect.top = getPaddingTop();
 		mDrawingRect.bottom = h - getPaddingBottom();
 		
-		setUpColorRect();
-		
+		setUpColorRect();		
 	}
 	
 	private void setUpColorRect(){
-		final RectF	dRect = mDrawingRect;		
+		final Rect	dRect = mDrawingRect;		
 		
-		float left = dRect.left + BORDER_WIDTH_PX;
-		float top = dRect.top + BORDER_WIDTH_PX;
-		float bottom = dRect.bottom - BORDER_WIDTH_PX;
-		float right = dRect.right - BORDER_WIDTH_PX;
+		int left = dRect.left + BORDER_WIDTH_PX;
+		int top = dRect.top + BORDER_WIDTH_PX;
+		int bottom = dRect.bottom - BORDER_WIDTH_PX;
+		int right = dRect.right - BORDER_WIDTH_PX;
 		
-		mColorRect = new RectF(left,top, right, bottom);
+		mColorRect = new Rect(left,top, right, bottom);
 		
-		mAlphaPattern = new AlphaPatternDrawable((int)(5 * mDensity));
+		mAlphaPattern = new AlphaPatternDrawable(DrawingUtils.dpToPx(getContext(), 2));
 		
 		mAlphaPattern.setBounds(Math.round(mColorRect.left), 
 				Math.round(mColorRect.top), 
@@ -219,5 +214,5 @@ public class ColorPanelView extends View{
 	public int getBorderColor(){
 		return mBorderColor;
 	}
-	
+		
 }

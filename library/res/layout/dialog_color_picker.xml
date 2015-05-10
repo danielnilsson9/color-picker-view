@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
-        android:text="Color Picker"
         android:textAppearance="?android:textAppearanceMedium"
         android:textStyle="bold" />
 
@@ -37,13 +36,13 @@
             <Button
                 android:id="@android:id/button1"
                 style="@style/PickerDialogButtonStyle"
-                android:layout_width="70dp"
+                android:layout_width="@dimen/color_picker_dialog_preview_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:text="OK" />
 
             <LinearLayout
-                android:layout_width="70dp"
+                android:layout_width="@dimen/color_picker_dialog_preview_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:orientation="vertical" >
@@ -51,7 +50,7 @@
                 <afzkl.development.colorpickerview.view.ColorPanelView
                     android:id="@id/color_panel_old"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp" />
+                    android:layout_height="@dimen/color_picker_dialog_preview_height" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -66,7 +65,7 @@
                 <afzkl.development.colorpickerview.view.ColorPanelView
                     android:id="@id/color_panel_new"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp" />
+                    android:layout_height="@dimen/color_picker_dialog_preview_height" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
