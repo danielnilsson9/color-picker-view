@@ -1,34 +1,8 @@
-apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.3.0"
-
-android {
-    compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
-    resourcePrefix "colorpickerview__"
-
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 3
-        versionName "1.3"
-    }
-    buildTypes {
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-// Homepage URL of the library
-def siteUrl = 'https://github.com/danielnilsson9/color-picker-view'
-// Git repository URL
-def gitUrl = 'github-windows://openRepo/https://github.com/danielnilsson9/color-picker-view.git'
-// maven group id
-group = "bintray-danielnilsson9-maven"
+version = libraryVersion
+group = publishedGroupId                // Maven Group ID for the artifact
 
 
 install {
@@ -37,34 +11,39 @@ install {
         pom {
             project {
                 packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
 
                 // Add your description here
-                name 'A simple good looking color picker component for Android.'
+                name libraryName
+                description libraryDescription
                 url siteUrl
 
                 // Set your license
                 licenses {
                     license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        name licenseName
+                        url licenseUrl
                     }
                 }
                 developers {
                     developer {
-                        id 'danielnilsson9'
-                        name 'Daniel Nilsson'
-                        email 'daniel.nilsson.9@gmail.com'
+                        id developerId
+                        name developerName
+                        email developerEmail
                     }
                 }
                 scm {
                     connection gitUrl
                     developerConnection gitUrl
                     url siteUrl
+
                 }
             }
         }
     }
 }
+
 
 
 task sourcesJar(type: Jar) {
@@ -86,9 +65,7 @@ artifacts {
     archives sourcesJar
 }
 
-
-
-
+// Bintray
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
@@ -98,11 +75,13 @@ bintray {
 
     configurations = ['archives']
     pkg {
-        repo = "maven"
-        name = "color-picker-view"
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
+        licenses = allLicenses
         publish = true
+        publicDownloadNumbers = true
     }
 }

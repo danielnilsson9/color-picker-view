@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/color-picker-view.iml" filepath="$PROJECT_DIR$/color-picker-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ColorPickerView.iml" filepath="$PROJECT_DIR$/ColorPickerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/color-picker-view/color-picker-view.iml" filepath="$PROJECT_DIR$/color-picker-view/color-picker-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>
 </project>
