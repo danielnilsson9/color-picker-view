@@ -14,14 +14,18 @@ There are basicly three different ways to use this color picker. You can add it 
 
 ### Changelog
 
-##### Version 1.2
+##### Version 1.4.0
+- Change of package name due to problem with jcenter publish. New package name is: com.github.danielnilsson9.colorpickerview, sorry for the inconvenience.
+- Fix for project could not be built due to obsolet android build tool version used.
+
+##### Version 1.3.0
+- Bugfix: Selected Hue value in hue panel did not perfectly match what was shown in in the Saturation/Value panel.
+- Bugfix: Layout issues on sw320dp displays.
+- Bugfix: Title could not be changed or removed in ColorPickerDialogFragment.
+
+##### Version 1.2.0
 - Api level 13 (Android 3.2) is now required by the library.
 - The ColorPickerDialog which was based on an AlertDialog has been replaced by ColorPickerDialogFragment which is based on a DialogFragment.
 - New layout on the color picker dialog, should look good on all screen sizes and orientations.
 - ColorPickerPreferences was replaced by ColorPreference. The ColorPreference does NOT take care of showing the ColorPickerDialogFragment, you will have to do that yourself, see the demo app. This is due to the fact that we don't have access to the fragment manager from the Preference class.
 - ColorPickerView now automatically saves it state on orientation change etc.
-
-##### Version 1.3
-- Bugfix: Selected Hue value in hue panel did not perfectly match what was shown in in the Saturation/Value panel.
-- Bugfix: Layout issues on sw320dp displays.
-- Bugfix: Title could not be changed or removed in ColorPickerDialogFragment.
