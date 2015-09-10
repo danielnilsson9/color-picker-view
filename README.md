@@ -11,7 +11,7 @@ A color picker is something that has always been missing from the standard set o
 The library is on jcenter. If you are using Android studio (and gradle), just add this line to your modeules
 build.gradle file in dependencies:
 
-````
+````gradle
 dependencies {
     compile "com.github.danielnilsson9:color-picker-view:1.4.0@aar"
 }
