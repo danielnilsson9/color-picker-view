@@ -1,4 +1,4 @@
-package afzkl.development.colorpickerview.view;
+package com.github.danielnilsson9.colorpickerview.view;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

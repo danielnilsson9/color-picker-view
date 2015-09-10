@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="color_picker_view_required_padding">6dp</dimen>
+    <!-- This is the minimum padding the ColorPickerView will have, if no padding is set this is used. -->
+    <dimen name="colorpickerview__required_padding">6dp</dimen>
     
-    <dimen name="color_picker_dialog_preview_width">65dp</dimen>
-    <dimen name="color_picker_dialog_preview_height">32dp</dimen>
+    <dimen name="colorpickerview__dialog_preview_width">65dp</dimen>
+    <dimen name="colorpickerview__dialog_preview_height">32dp</dimen>
     
     
 </resources>

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package afzkl.development.colorpickerview.view;
+package com.github.danielnilsson9.colorpickerview.view;
 
-import afzkl.development.colorpickerview.R;
-import afzkl.development.colorpickerview.drawable.AlphaPatternDrawable;
+import com.github.danielnilsson9.colorpickerview.R;
+import com.github.danielnilsson9.colorpickerview.drawable.AlphaPatternDrawable;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -42,9 +42,9 @@ public class ColorPanelView extends View{
 	 * The width in pixels of the border 
 	 * surrounding the color panel.
 	 */
-	private final static int	BORDER_WIDTH_PX = 1;
-	
-	private final static int 	DEFAULT_BORDER_COLOR = 0xFF6E6E6E;
+	private final static int BORDER_WIDTH_PX = 1;
+
+	private final static int DEFAULT_BORDER_COLOR = 0xFF6E6E6E;
 	
 	private int 		mBorderColor = DEFAULT_BORDER_COLOR;
 	private int 		mColor = 0xff000000;
@@ -96,8 +96,8 @@ public class ColorPanelView extends View{
 	
 	private void init(Context context, AttributeSet attrs){
 		
-		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ColorPickerView);		
-		mBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, 0xFF6E6E6E);
+		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.colorpickerview__ColorPickerView);
+		mBorderColor = a.getColor(R.styleable.colorpickerview__ColorPickerView_borderColor, 0xFF6E6E6E);
 		a.recycle();
 		
 		applyThemeColors(context);

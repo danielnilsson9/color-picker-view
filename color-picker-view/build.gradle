@@ -3,14 +3,14 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    buildToolsVersion "23.0.0"
     resourcePrefix "colorpickerview__"
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 3
-        versionName "1.3"
+        versionCode 4
+        versionName "1.4.0"
     }
     buildTypes {
     }
@@ -24,7 +24,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'color-picker-view'
 
-    publishedGroupId = 'afzkl.development'
+    publishedGroupId = 'com.github.danielnilsson9'
     libraryName = 'ColorPickerView'
     artifact = 'color-picker-view'
 
@@ -33,7 +33,7 @@ ext {
     siteUrl = 'https://github.com/danielnilsson9/color-picker-view'
     gitUrl = 'https://github.com/danielnilsson9/color-picker-view.git'
 
-    libraryVersion = '1.3.0'
+    libraryVersion = '1.4.0'
 
     developerId = 'danielnilsson9'
     developerName = 'Daniel Nilsson'

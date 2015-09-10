@@ -40,10 +40,10 @@
  * - Replaced all RectF used in the layout process with Rect since the
  *   floating point values was causing layout issues (perfect alignment).
  */
-package afzkl.development.colorpickerview.view;
+package com.github.danielnilsson9.colorpickerview.view;
 
-import afzkl.development.colorpickerview.R;
-import afzkl.development.colorpickerview.drawable.AlphaPatternDrawable;
+import com.github.danielnilsson9.colorpickerview.R;
+import com.github.danielnilsson9.colorpickerview.drawable.AlphaPatternDrawable;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -240,11 +240,11 @@ public class ColorPickerView extends View{
 	
 	private void init(Context context, AttributeSet attrs) {
 		//Load those if set in xml resource file.
-		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ColorPickerView);		
-		mShowAlphaPanel = a.getBoolean(R.styleable.ColorPickerView_alphaChannelVisible, false);
-		mAlphaSliderText = a.getString(R.styleable.ColorPickerView_alphaChannelText);		
-		mSliderTrackerColor = a.getColor(R.styleable.ColorPickerView_sliderColor, 0xFFBDBDBD);
-		mBorderColor = a.getColor(R.styleable.ColorPickerView_borderColor, 0xFF6E6E6E);		
+		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.colorpickerview__ColorPickerView);
+		mShowAlphaPanel = a.getBoolean(R.styleable.colorpickerview__ColorPickerView_alphaChannelVisible, false);
+		mAlphaSliderText = a.getString(R.styleable.colorpickerview__ColorPickerView_alphaChannelText);
+		mSliderTrackerColor = a.getColor(R.styleable.colorpickerview__ColorPickerView_sliderColor, 0xFFBDBDBD);
+		mBorderColor = a.getColor(R.styleable.colorpickerview__ColorPickerView_borderColor, 0xFF6E6E6E);
 		a.recycle();
 		
 		applyThemeColors(context);
@@ -257,7 +257,7 @@ public class ColorPickerView extends View{
 		mSliderTrackerSizePx = DrawingUtils.dpToPx(getContext(), SLIDER_TRACKER_SIZE_DP);
 		mSliderTrackerOffsetPx = DrawingUtils.dpToPx(getContext(), SLIDER_TRACKER_OFFSET_DP);
 
-		mRequiredPadding = getResources().getDimensionPixelSize(R.dimen.color_picker_view_required_padding);
+		mRequiredPadding = getResources().getDimensionPixelSize(R.dimen.colorpickerview__required_padding);
 		
 		initPaintTools();
 		

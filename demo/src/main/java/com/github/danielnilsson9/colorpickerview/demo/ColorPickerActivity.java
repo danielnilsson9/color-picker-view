@@ -1,8 +1,8 @@
-package afzkl.development.colorpickerview.demo;
+package com.github.danielnilsson9.colorpickerview.demo;
 
-import afzkl.development.colorpickerview.view.ColorPanelView;
-import afzkl.development.colorpickerview.view.ColorPickerView;
-import afzkl.development.colorpickerview.view.ColorPickerView.OnColorChangedListener;
+import com.github.danielnilsson9.colorpickerview.view.ColorPanelView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView.OnColorChangedListener;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
@@ -36,9 +36,9 @@ public class ColorPickerActivity extends Activity implements OnColorChangedListe
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		int initialColor = prefs.getInt("color_3", 0xFF000000);
 	
-		mColorPickerView = (ColorPickerView) findViewById(R.id.color_picker_view);
-		mOldColorPanelView = (ColorPanelView) findViewById(R.id.color_panel_old);
-		mNewColorPanelView = (ColorPanelView) findViewById(R.id.color_panel_new);
+		mColorPickerView = (ColorPickerView) findViewById(R.id.colorpickerview__color_picker_view);
+		mOldColorPanelView = (ColorPanelView) findViewById(R.id.colorpickerview__color_panel_old);
+		mNewColorPanelView = (ColorPanelView) findViewById(R.id.colorpickerview__color_panel_new);
 		
 		mOkButton = (Button) findViewById(R.id.okButton);
 		mCancelButton = (Button) findViewById(R.id.cancelButton);
@@ -67,7 +67,7 @@ public class ColorPickerActivity extends Activity implements OnColorChangedListe
 	public void onClick(View v) {
 		
 		switch(v.getId()) {
-		case R.id.okButton:			
+		case R.id.okButton:
 			SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			edit.putInt("color_3", mColorPickerView.getColor());
 			edit.commit();

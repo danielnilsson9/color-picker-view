@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package afzkl.development.colorpickerview.preference;
+package com.github.danielnilsson9.colorpickerview.preference;
 
-import afzkl.development.colorpickerview.R;
-import afzkl.development.colorpickerview.view.ColorPanelView;
+import com.github.danielnilsson9.colorpickerview.R;
+import com.github.danielnilsson9.colorpickerview.view.ColorPanelView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.Preference;
@@ -49,7 +49,7 @@ public class ColorPreference extends Preference {
 	private void init(AttributeSet attrs) {
 		setPersistent(true);	
 		
-		setWidgetLayoutResource(R.layout.preference_preview_layout);
+		setWidgetLayoutResource(R.layout.colorpickerview__preference_preview_layout);
 		
 		setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			
@@ -88,7 +88,7 @@ public class ColorPreference extends Preference {
 	protected void onBindView(View view) {
 		super.onBindView(view);
 		
-		ColorPanelView preview = (ColorPanelView) view.findViewById(R.id.preference_preview_color_panel);
+		ColorPanelView preview = (ColorPanelView) view.findViewById(R.id.colorpickerview__preference_preview_color_panel);
 		
 		if(preview != null) {
 			preview.setColor(mColor);

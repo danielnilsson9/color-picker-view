@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    		  xmlns:picker="http://schemas.android.com/apk/res/afzkl.development.colorpickerview.demo"
+    		  xmlns:picker="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:divider="?android:attr/dividerHorizontal"
@@ -13,8 +13,8 @@
         android:layout_weight="1"
         android:padding="25dp" >
 
-        <afzkl.development.colorpickerview.view.ColorPickerView
-            android:id="@id/color_picker_view"
+        <com.github.danielnilsson9.colorpickerview.view.ColorPickerView
+            android:id="@id/colorpickerview__color_picker_view"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             picker:alphaChannelVisible="true" />
@@ -22,14 +22,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignLeft="@id/color_picker_view"
-            android:layout_alignRight="@id/color_picker_view"
-            android:layout_below="@id/color_picker_view"
+            android:layout_alignLeft="@id/colorpickerview__color_picker_view"
+            android:layout_alignRight="@id/colorpickerview__color_picker_view"
+            android:layout_below="@id/colorpickerview__color_picker_view"
             android:layout_marginTop="16dp"
             android:orientation="horizontal" >
 
-            <afzkl.development.colorpickerview.view.ColorPanelView
-                android:id="@id/color_panel_old"
+            <com.github.danielnilsson9.colorpickerview.view.ColorPanelView
+                android:id="@id/colorpickerview__color_panel_old"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.5" />
@@ -43,8 +43,8 @@
                 android:text="→"
                 android:textSize="20sp" />
 
-            <afzkl.development.colorpickerview.view.ColorPanelView
-                android:id="@id/color_panel_new"
+            <com.github.danielnilsson9.colorpickerview.view.ColorPanelView
+                android:id="@id/colorpickerview__color_panel_new"
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.5" />

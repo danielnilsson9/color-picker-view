@@ -1,9 +1,9 @@
-package afzkl.development.colorpickerview.demo;
+package com.github.danielnilsson9.colorpickerview.demo;
 
-import afzkl.development.colorpickerview.dialog.ColorPickerDialogFragment;
-import afzkl.development.colorpickerview.dialog.ColorPickerDialogFragment.ColorPickerDialogListener;
-import afzkl.development.colorpickerview.preference.ColorPreference;
-import afzkl.development.colorpickerview.preference.ColorPreference.OnShowDialogListener;
+import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment;
+import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment.ColorPickerDialogListener;
+import com.github.danielnilsson9.colorpickerview.preference.ColorPreference;
+import com.github.danielnilsson9.colorpickerview.preference.ColorPreference.OnShowDialogListener;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.graphics.Color;
@@ -144,7 +144,7 @@ public class MainActivity extends Activity implements ColorPickerDialogListener 
 					ColorPickerDialogFragment dialog = ColorPickerDialogFragment
 							.newInstance(PREFERENCE_DIALOG_ID, "Color Picker", null, currentColor, false);
 
-					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);		
+					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 					
 					// PLEASE READ!
 					// Show the dialog, the result from the dialog

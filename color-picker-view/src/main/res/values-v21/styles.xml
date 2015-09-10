@@ -1,7 +1,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Use default button material style in v21+ -->   
-    <style name="PickerDialogButtonStyle" parent="android:Widget.Material.Button.Borderless">       
+    <style name="colorpickerview__PickerDialogButtonStyle" parent="android:Widget.Material.Button.Borderless">
         <item name="android:textColor">?android:colorAccent</item>   
     </style>
      

@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package afzkl.development.colorpickerview.dialog;
+package com.github.danielnilsson9.colorpickerview.dialog;
 
-import afzkl.development.colorpickerview.R;
-import afzkl.development.colorpickerview.view.ColorPanelView;
-import afzkl.development.colorpickerview.view.ColorPickerView;
-import afzkl.development.colorpickerview.view.ColorPickerView.OnColorChangedListener;
+import com.github.danielnilsson9.colorpickerview.R;
+import com.github.danielnilsson9.colorpickerview.view.ColorPanelView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView;
+import com.github.danielnilsson9.colorpickerview.view.ColorPickerView.OnColorChangedListener;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -113,17 +113,17 @@ public class ColorPickerDialogFragment extends DialogFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.dialog_color_picker, container);
+		View v = inflater.inflate(R.layout.colorpickerview__dialog_color_picker, container);
 		
 	
 		TextView titleView = (TextView) v.findViewById(android.R.id.title);
 		
 		mColorPicker = (ColorPickerView) 
-				v.findViewById(R.id.color_picker_view);		
+				v.findViewById(R.id.colorpickerview__color_picker_view);
 		mOldColorPanel = (ColorPanelView) 
-				v.findViewById(R.id.color_panel_old);	
+				v.findViewById(R.id.colorpickerview__color_panel_old);
 		mNewColorPanel = (ColorPanelView) 
-				v.findViewById(R.id.color_panel_new);
+				v.findViewById(R.id.colorpickerview__color_panel_new);
 		mOkButton = (Button) v.findViewById(android.R.id.button1);
 		
 

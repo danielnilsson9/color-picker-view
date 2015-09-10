@@ -19,9 +19,9 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <afzkl.development.colorpickerview.view.ColorPickerView
-            android:id="@id/color_picker_view"
-            style="@style/ColorPickerViewStyle"
+        <com.github.danielnilsson9.colorpickerview.view.ColorPickerView
+            android:id="@id/colorpickerview__color_picker_view"
+            style="@style/colorpickerview__ColorPickerViewStyle"
             android:padding="16dp" />
 
         <FrameLayout
@@ -35,22 +35,22 @@
 
             <Button
                 android:id="@android:id/button1"
-                style="@style/PickerDialogButtonStyle"
-                android:layout_width="@dimen/color_picker_dialog_preview_width"
+                style="@style/colorpickerview__PickerDialogButtonStyle"
+                android:layout_width="@dimen/colorpickerview__dialog_preview_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:text="OK" />
 
             <LinearLayout
-                android:layout_width="@dimen/color_picker_dialog_preview_width"
+                android:layout_width="@dimen/colorpickerview__dialog_preview_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:orientation="vertical" >
 
-                <afzkl.development.colorpickerview.view.ColorPanelView
-                    android:id="@id/color_panel_old"
+                <com.github.danielnilsson9.colorpickerview.view.ColorPanelView
+                    android:id="@id/colorpickerview__color_panel_old"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/color_picker_dialog_preview_height" />
+                    android:layout_height="@dimen/colorpickerview__dialog_preview_height" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -62,10 +62,10 @@
                     android:text="↓"
                     android:textSize="16sp" />
 
-                <afzkl.development.colorpickerview.view.ColorPanelView
-                    android:id="@id/color_panel_new"
+                <com.github.danielnilsson9.colorpickerview.view.ColorPanelView
+                    android:id="@id/colorpickerview__color_panel_new"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/color_picker_dialog_preview_height" />
+                    android:layout_height="@dimen/colorpickerview__dialog_preview_height" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
