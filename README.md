@@ -8,8 +8,8 @@ A color picker is something that has always been missing from the standard set o
 <img src="https://cloud.githubusercontent.com/assets/5458667/7705689/07a0673e-fe46-11e4-94c8-49a980e7d1b5.png" alt="Screenshot2" width="460">
 
 ### How to use
-The library is on jcenter. If you are using Android studio (and gradle), just add this line to your modeules
-build.gradle file in dependencies:
+The library is on jcenter. If you are using Android studio (and gradle), just add this line to your module
+build.gradle file under dependencies:
 
 ````gradle
 dependencies {
