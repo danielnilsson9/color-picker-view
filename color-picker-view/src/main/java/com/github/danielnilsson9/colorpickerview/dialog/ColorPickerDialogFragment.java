@@ -61,20 +61,24 @@ public class ColorPickerDialogFragment extends DialogFragment {
 	private ColorPickerDialogListener mListener;
 
 
+    /**
+     * @deprecated replaced by {@link Builder}
+     */
+    @Deprecated
     public static ColorPickerDialogFragment newInstance(int dialogId, int initialColor) {
         return newInstance(dialogId, null, null, initialColor, false);
     }
 
-    public static ColorPickerDialogFragment newInstance(int dialogId, int initialColor, boolean showHexadecimalInput) {
-        return newInstance(dialogId, null, null, initialColor, false, showHexadecimalInput);
-    }
-
+    /**
+     * @deprecated replaced by {@link Builder}
+     */
+    @Deprecated
     public static ColorPickerDialogFragment newInstance(
             int dialogId, String title, String okButtonText, int initialColor, boolean showAlphaSlider) {
         return newInstance(dialogId, title, okButtonText, initialColor, showAlphaSlider, false);
     }
 
-	public static ColorPickerDialogFragment newInstance(
+	private static ColorPickerDialogFragment newInstance(
 			int dialogId, String title, String okButtonText, int initialColor, boolean showAlphaSlider, boolean showHexadecimalInput) {
 		
 		ColorPickerDialogFragment frag = new ColorPickerDialogFragment();
@@ -236,4 +240,45 @@ public class ColorPickerDialogFragment extends DialogFragment {
 		mListener.onDialogDismissed(mDialogId);
 	}
 
+
+    /**
+     * Builder class for ColorPickerDialogFragment.
+     */
+    public static class Builder {
+        private final int dialogId;
+        private final int initialColor;
+        private String okButtonText;
+        private String title;
+        private boolean showAlphaSlider;
+        private boolean showHexadecimalInput;
+
+        public Builder(int dialogId, int initialColor) {
+            this.dialogId = dialogId;
+            this.initialColor = initialColor;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder okButtonText(String text) {
+            this.okButtonText = text;
+            return this;
+        }
+
+        public Builder showAlphaSlider(boolean show) {
+            this.showAlphaSlider = show;
+            return this;
+        }
+
+        public Builder showHexadecimalInput(boolean show) {
+            this.showHexadecimalInput = show;
+            return this;
+        }
+
+        public ColorPickerDialogFragment build() {
+            return ColorPickerDialogFragment.newInstance(dialogId, title, okButtonText, initialColor, showAlphaSlider, showHexadecimalInput);
+        }
+    }
 }
