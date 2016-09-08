@@ -19,10 +19,25 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
-        <com.github.danielnilsson9.colorpickerview.view.ColorPickerView
-            android:id="@id/colorpickerview__color_picker_view"
-            style="@style/colorpickerview__ColorPickerViewStyle"
-            android:padding="16dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.danielnilsson9.colorpickerview.view.ColorPickerView
+                android:id="@id/colorpickerview__color_picker_view"
+                style="@style/colorpickerview__ColorPickerViewStyle"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/colorpickerview__hexadecimal_input"
+                android:hint="@string/colorpickerview__hexadecimal_input"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:digits="#0123456789AaBbCcDdEeFf"
+                style="@style/colorpickerview__HexadecimalInput"/>
+
+        </LinearLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"

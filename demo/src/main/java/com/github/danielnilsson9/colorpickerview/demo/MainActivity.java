@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements ColorPickerDialogListener 
 		// a dialog using the custom ColorPickerDialogFragment class.
 		
 		ColorPickerDialogFragment f = ColorPickerDialogFragment
-				.newInstance(DIALOG_ID, null, null, Color.BLACK, true);
+				.newInstance(DIALOG_ID, null, null, Color.BLACK, true, true);
 		
 		f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 		f.show(getFragmentManager(), "d");
@@ -142,7 +142,7 @@ public class MainActivity extends Activity implements ColorPickerDialogListener 
 					
 					// Preference was clicked, we need to show the dialog.					
 					ColorPickerDialogFragment dialog = ColorPickerDialogFragment
-							.newInstance(PREFERENCE_DIALOG_ID, "Color Picker", null, currentColor, false);
+							.newInstance(PREFERENCE_DIALOG_ID, "Color Picker", null, currentColor, false, true);
 
 					dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme);
 					

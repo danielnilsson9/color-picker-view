@@ -24,6 +24,9 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,9 +34,14 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.github.danielnilsson9.colorpickerview.ColorUtils;
+
 public class ColorPickerDialogFragment extends DialogFragment {
+
+    private static final String ARG_HEXADECIMAL_INPUT = "hexadecimal_input";
 
 	public interface ColorPickerDialogListener {
 		public void onColorSelected(int dialogId, int color);
@@ -47,16 +55,27 @@ public class ColorPickerDialogFragment extends DialogFragment {
 	private ColorPanelView mOldColorPanel;
 	private ColorPanelView mNewColorPanel;
 	private Button mOkButton;
-	
+    private EditText mHexadecimalInput;
+	private boolean mSkipHexadecimalTextChange;
+
 	private ColorPickerDialogListener mListener;
-	
-	
-	public static ColorPickerDialogFragment newInstance(int dialogId, int initialColor) {
-		return newInstance(dialogId, null, null, initialColor, false);
-	}
-	
+
+
+    public static ColorPickerDialogFragment newInstance(int dialogId, int initialColor) {
+        return newInstance(dialogId, null, null, initialColor, false);
+    }
+
+    public static ColorPickerDialogFragment newInstance(int dialogId, int initialColor, boolean showHexadecimalInput) {
+        return newInstance(dialogId, null, null, initialColor, false, showHexadecimalInput);
+    }
+
+    public static ColorPickerDialogFragment newInstance(
+            int dialogId, String title, String okButtonText, int initialColor, boolean showAlphaSlider) {
+        return newInstance(dialogId, title, okButtonText, initialColor, showAlphaSlider, false);
+    }
+
 	public static ColorPickerDialogFragment newInstance(
-			int dialogId, String title, String okButtonText, int initialColor, boolean showAlphaSlider) {
+			int dialogId, String title, String okButtonText, int initialColor, boolean showAlphaSlider, boolean showHexadecimalInput) {
 		
 		ColorPickerDialogFragment frag = new ColorPickerDialogFragment();
 		Bundle args = new Bundle();
@@ -65,7 +84,8 @@ public class ColorPickerDialogFragment extends DialogFragment {
 		args.putString("ok_button", okButtonText);
 		args.putBoolean("alpha", showAlphaSlider);
 		args.putInt("init_color", initialColor);
-		
+		args.putBoolean(ARG_HEXADECIMAL_INPUT, showHexadecimalInput);
+
 		frag.setArguments(args);
 		
 		return frag;
@@ -114,9 +134,10 @@ public class ColorPickerDialogFragment extends DialogFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.colorpickerview__dialog_color_picker, container);
-		
-	
-		TextView titleView = (TextView) v.findViewById(android.R.id.title);
+
+        final boolean showHexadecimalInput = getArguments().getBoolean(ARG_HEXADECIMAL_INPUT);
+        final boolean showAlphaSlider = getArguments().getBoolean("alpha");
+        TextView titleView = (TextView) v.findViewById(android.R.id.title);
 		
 		mColorPicker = (ColorPickerView) 
 				v.findViewById(R.id.colorpickerview__color_picker_view);
@@ -125,12 +146,17 @@ public class ColorPickerDialogFragment extends DialogFragment {
 		mNewColorPanel = (ColorPanelView) 
 				v.findViewById(R.id.colorpickerview__color_panel_new);
 		mOkButton = (Button) v.findViewById(android.R.id.button1);
-		
+        mHexadecimalInput = (EditText) v.findViewById(R.id.colorpickerview__hexadecimal_input);
 
 		mColorPicker.setOnColorChangedListener(new OnColorChangedListener() {
 			
 			@Override
 			public void onColorChanged(int newColor) {
+                if (showHexadecimalInput) {
+                    String hexadecimalColor = ColorUtils.colorToString(newColor, showAlphaSlider);
+                    mSkipHexadecimalTextChange = true;
+                    mHexadecimalInput.setText(hexadecimalColor);
+                }
 				mNewColorPanel.setColor(newColor);
 			}
 		});
@@ -157,15 +183,42 @@ public class ColorPickerDialogFragment extends DialogFragment {
 		
 			
 		if(savedInstanceState == null) {
-			mColorPicker.setAlphaSliderVisible(
-					getArguments().getBoolean("alpha"));
-			
+			mColorPicker.setAlphaSliderVisible(showAlphaSlider);
 			
 			String ok = getArguments().getString("ok_button");
 			if(ok != null) {
 				mOkButton.setText(ok);
 			}
-			
+
+            mHexadecimalInput.setVisibility(showHexadecimalInput? View.VISIBLE: View.GONE);
+            if (showHexadecimalInput) {
+                int maxCharCount = showAlphaSlider? 9: 7;
+                mHexadecimalInput.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxCharCount)});
+
+                mHexadecimalInput.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        if (mSkipHexadecimalTextChange) {
+                            mSkipHexadecimalTextChange = false;
+                        } else {
+                            if (s.length() == 0 || s.charAt(0) != '#') {
+                                s.insert(0, "#");
+                            } else if (ColorUtils.isValidHexadecimal(s.toString())) {
+                                int color = ColorUtils.parseColor(s.toString());
+                                mColorPicker.setColor(color);
+                                mNewColorPanel.setColor(color);
+                            }
+                        }
+                    }
+                });
+            }
+
 			int initColor = getArguments().getInt("init_color");
 			
 			mOldColorPanel.setColor(initColor);
