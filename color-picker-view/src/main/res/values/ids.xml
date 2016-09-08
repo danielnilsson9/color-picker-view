@@ -4,5 +4,5 @@
     <item type="id" name="colorpickerview__color_panel_old" />
     <item type="id" name="colorpickerview__color_panel_new" />
     <item type="id" name="colorpickerview__preference_preview_color_panel" />
-
+    <item type="id" name="colorpickerview__hexadecimal_input"/>
 </resources>
